@@ -8,7 +8,6 @@ import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
-// temp code review comment
 public class Test01 {
 
     @Test
