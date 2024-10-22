@@ -10,6 +10,7 @@ repositories {
 }
 
 dependencies {
+    //temp code review comment
     implementation 'org.seleniumhq.selenium:selenium-java:2.41.0'
     testImplementation 'org.testng:testng:7.8.0'
 }
