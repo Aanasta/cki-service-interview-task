@@ -8,25 +8,26 @@ import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
-public class LoginPageTest {
+public class Test01 {
 
+    //CODE REVIEW
     @Test
-    public void assertTextOnPageIsPresent(){
+    public void assertTextOnPage(){
         System.setProperty("webdriver.chrome.driver", "lib/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.get("https://circlek-public.github.io/cki-service-recruitment-task/");
 
         //assert Remember Me Button
         WebElement rememeberMeLabel = driver.findElement(By.id("remember_me_label"));
-        assertEquals(rememeberMeLabel.getText(), "Remember Me");
+        assertEquals("Remember Me", rememeberMeLabel.getText());
 
         //assert Sign In text
         WebElement signInButton = driver.findElement(By.className("login"));
-        assertEquals(signInButton.getText(), "Sign In");
+        assertEquals("Sign In", signInButton.getText());
     }
 
     @Test
-    public void assertRememberMeCheckBoxIsClickable(){
+    public void checkRememberMeCheckBox(){
         System.setProperty("webdriver.chrome.driver", "lib/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.get("https://circlek-public.github.io/cki-service-recruitment-task/");
