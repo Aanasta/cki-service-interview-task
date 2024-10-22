@@ -10,33 +10,41 @@ import static org.testng.Assert.assertEquals;
 
 public class Test01 {
 
-    @Test
-    public void assertTextOnPage(){
+    @BeforeMethod
+    public void setUp() {
         System.setProperty("webdriver.chrome.driver", "lib/chromedriver.exe");
-        WebDriver driver = new ChromeDriver();
-        driver.get("https://circlek-public.github.io/cki-service-recruitment-task/");
+        driver = new ChromeDriver();
+    }
 
-        //assert Remember Me Button
-        WebElement rememeberMeLabel = driver.findElement(By.id("remember_me_label"));
-        assertEquals("Remember Me", rememeberMeLabel.getText());
-
-        //assert Sign In text
-        WebElement signInButton = driver.findElement(By.className("login"));
-        assertEquals("Sign In", signInButton.getText());
+    @AfterMethod
+    public void tearDown() {
+        if (driver != null) {
+            driver.quit();
+        }
     }
 
     @Test
-    public void checkRememberMeCheckBox(){
-        System.setProperty("webdriver.chrome.driver", "lib/chromedriver.exe");
-        WebDriver driver = new ChromeDriver();
+    public void assertTextOnPageIsPresent(){
+        driver.get("https://circlek-public.github.io/cki-service-recruitment-task/");
+
+        //assert Remember Me Button
+        WebElement rememberMeLabel = driver.findElement(By.id("remember_me_label"));
+        assertEquals(rememberMeLabel.getText(), "Remember Me");
+
+        //assert Sign In text
+        WebElement signInButton = driver.findElement(By.className("login"));
+        assertEquals(signInButton.getText(), "Sign In");
+    }
+
+    @Test
+    public void assertRememberMeCheckBoxIsClickable(){
         driver.get("https://circlek-public.github.io/cki-service-recruitment-task/");
 
         //click Remember Me checkbox
-        WebElement rememberMeCheckBox = driver.findElement(By.xpath("//*[contains(text(), \"Remember Me\")]/../input"));
+        WebElement rememberMeCheckBox = driver.findElement(By.id("remember_me"));
         rememberMeCheckBox.click();
 
         //check if clicked
-        assertEquals(rememberMeCheckBox.isSelected(), true);
-
+        assertTrue(rememberMeCheckBox.isSelected());
     }
 }
