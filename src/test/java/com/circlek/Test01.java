@@ -8,9 +8,9 @@ import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
+// temp code review comment
 public class Test01 {
 
-    //CODE REVIEW
     @Test
     public void assertTextOnPage(){
         System.setProperty("webdriver.chrome.driver", "lib/chromedriver.exe");
